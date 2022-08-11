@@ -13,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -54,7 +55,7 @@ fun CalculatorScreen(vm: MainViewModel = viewModel()) {
         ) {
             NumberInputField(
                 value = vm.input1,
-                label = "Zahl 1",
+                label = stringResource(id = R.string.input1txt),
                 onTextChange =  { newtext -> vm.input1 = newtext},
                 modifier = Modifier.width(100.dp)
             )
@@ -63,7 +64,7 @@ fun CalculatorScreen(vm: MainViewModel = viewModel()) {
 
             NumberInputField(
                 value = vm.input2,
-                label = "Zahl 2",
+                label = stringResource(id = R.string.input2txt),
                 onTextChange =  { newtext -> vm.input2 = newtext},
                 modifier = Modifier.width(100.dp)
             )
@@ -87,7 +88,7 @@ fun CalculatorScreen(vm: MainViewModel = viewModel()) {
                 else {
                     Toast.makeText(
                         context,
-                        "kein gültiger Input",
+                        stringResource(id = R.string.invalid_input),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
